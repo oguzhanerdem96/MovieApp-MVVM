@@ -24,7 +24,7 @@ final class MovieService {
 
     typealias cHandler = ([MovieNowPlayingInfo]? ,String?) -> Void
     typealias cUpComingHandler = ([MovieUpComingInfo]?,String?) -> Void
-    typealias detailHandler = (MovieDetailsModel,String?) -> Void
+    typealias detailHandler = (MovieDetailsModel?,String?) -> Void
     
     //MARK: - getMovies with types
 
@@ -64,10 +64,10 @@ final class MovieService {
     func fetchDetailsMovie(id: Int , completion: @escaping detailHandler) {
         let endPoint = apiBaseUrl + "\(id)?api_key=\(myAPIKey)" + languageAndPage
         let request = AF.request(endPoint)
-        request.validate().responseDecodable(of: MovieNowPlayingModel.self) { response in
+        request.validate().responseDecodable(of: MovieDetailsModel.self) { response in
             switch response.result {
             case .success(let movieInfos):
-                completion(movieInfos.results, nil)
+                completion(movieInfos, nil)
             case .failure(let error):
                 completion(nil, error.localizedDescription)
             }
@@ -77,7 +77,7 @@ final class MovieService {
     
     //MARK: - fetch similar movies
     
-    func fetchSimilarMovie(id: Int , completion: cHandler) {
+    func fetchSimilarMovie(id: Int , completion: @escaping cHandler) {
         let endPoint = apiBaseUrl + "\(id)/similar?api_key=\(myAPIKey)" + languageAndPage
         
         let request = AF.request(endPoint)
@@ -94,7 +94,7 @@ final class MovieService {
     
     //MARK: - Get Search
     
-    func getSearch(with query: String, completion: cUpComingHandler) {
+    func getSearch(with query: String, completion: @escaping cUpComingHandler) {
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
         let urlString =  "https://api.themoviedb.org/3/search/movie?api_key=\(myAPIKey)&query=\(query)"
         
