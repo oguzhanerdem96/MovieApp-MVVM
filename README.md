@@ -10,3 +10,5 @@
 .DETAILS
 
 .SIMILAR Movies and Searching API
+
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/63563507/206460553-d355e065-8244-4ac8-94e6-a6980a5662d2.gif)
