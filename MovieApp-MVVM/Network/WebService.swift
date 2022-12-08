@@ -16,10 +16,10 @@ enum MovieTypes: String {
 final class MovieService {
     
     static let shared = MovieService()
-    private init(){}
+    
     
     let apiBaseUrl = "https://api.themoviedb.org/3/movie/"
-    let languageAndPage = "language=en-US&page=1#"
+    let languageAndPage = "&language=en-US&page=1#"
     let myAPIKey = "0c3c30821942c1012a6fd0366d2aaf13"
 
     typealias cHandler = ([MovieNowPlayingInfo]? ,String?) -> Void

@@ -81,7 +81,6 @@ extension DetailBottomCell  {
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -17),
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-           // imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
             imageView.heightAnchor.constraint(equalToConstant: contentView.frame.height/1.4),
             
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
